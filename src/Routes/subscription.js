@@ -41,8 +41,6 @@ router.post('/', async (req, res) => {
 
 function validate(subscription){
     const schema = Joi.object({
-        applicationId: Joi.string().required(),
-        password: Joi.string().required(),
         subscriberId: Joi.string().required(),
         action: Joi.string().valid('0', '1').required()
     });
