@@ -15,7 +15,7 @@ router.post('/', async (req, res) => {
     const app_id = process.env.APP_ID;
     const api_key = process.env.API_KEY;
 
-    async function makeApiRequest() {
+
         try {
           // Create the payload with default values and additional parameters
           const payload = {
@@ -31,13 +31,13 @@ router.post('/', async (req, res) => {
           res.send(response.data);
         } catch (error) {
           // Handle errors here
-          console.error('API Error:', error);
+          res.status(500).json({ error: 'Internal server error' });
         }
       }
 
 
 
-});
+);
 
 function validate(subscription){
     const schema = Joi.object({
