@@ -7,6 +7,7 @@ const app = express();
 // Routes
 const router1 = require('./Routes/users');
 const router2 = require('./Routes/auth');
+const router3 = require('./Routes/subscription');
 
 // Connect to mongoDB
 mongoose.connect(process.env.DATABASE_CONNECTION_STRING);
@@ -17,6 +18,7 @@ app.use(express.json());
 app.use(cors());
 app.use('/register', router1);
 app.use('/login', router2);
+app.use('/subscription', router3);
 
 app.get('/', (req, res) => {
     res.send('Hello World');
